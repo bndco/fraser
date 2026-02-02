@@ -16,7 +16,19 @@
             if (style) {
                 document.body.classList.add(style);
             }
-        </script></body>
+        </script>
+<script>
+function resizeIframe() {
+  const height = document.documentElement.scrollHeight;
+  parent.postMessage(height, '*');
+}
+window.onload = resizeIframe;
+</script>
+
+
+
+</body>
 </html>
+
 
 
