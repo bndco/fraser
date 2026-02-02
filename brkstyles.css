@@ -1,8 +1,10 @@
-body{
-    margin:0;         padding:0;
-    margin-bottom: 0px;        font-size: 1rem; 
-    max-width: 100%;       box-sizing: border-box;
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
 }
+
 
         .rssn h1 { font-size: 40px; color: red;margin:0;padding:0}
         .rssn a {color: rgb(253, 170, 45);}
@@ -12,3 +14,4 @@ body{
         .mfo h1 { font-size: 30px; color: blue; margin:0;padding:0;}
 
         .horos h1,a {line-height: 12px;margin-top:6px;color: rgb(56, 26, 67);}
+
