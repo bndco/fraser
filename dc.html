@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Alerta Defesa Civil</title>
+
+<style>
+  .alerta {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  .moderado {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+  }
+
+  .perigoso {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+  .grave {
+    background-color: #721c24;
+    color: #ffffff;
+    border: 1px solid #491217;
+  }
+</style>
+</head>
+<body>
+
+<div id="alertaDefesaCivil"></div>
+
+<script>
+  /* 
+    CONTROLE DO ALERTA
+    Troque apenas UM caractere abaixo
+    0 = nenhum alerta
+    1 = moderado
+    2 = perigoso
+    3 = grave
+  */
+  const nivelAlerta = 1;
+
+  const alertas = {
+    1: {
+      classe: "alerta moderado",
+      titulo: "TESTE. Alerta Moderado",
+      mensagem: "Condições climáticas adversas. Atenção a possíveis alagamentos e rajadas de vento."
+    },
+    2: {
+      classe: "alerta perigoso",
+      titulo: "Alerta Perigoso",
+      mensagem: "Risco elevado. Evite áreas de risco, encostas e regiões alagáveis."
+    },
+    3: {
+      classe: "alerta grave",
+      titulo: "Alerta Grave",
+      mensagem: "Situação crítica. Risco imediato à população. Siga as orientações da Defesa Civil."
+    }
+  };
+
+  const container = document.getElementById("alertaDefesaCivil");
+
+  if (nivelAlerta !== 0 && alertas[nivelAlerta]) {
+    const dados = alertas[nivelAlerta];
+    container.innerHTML = `
+      <div class="${dados.classe}">
+        <strong>${dados.titulo}</strong><br>
+        ${dados.mensagem}
+      </div>
+    `;
+  } else {
+    container.innerHTML = "";
+  }
+</script>
+
+</body>
+</html>
