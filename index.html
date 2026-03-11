@@ -178,7 +178,6 @@ Welcome
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
     const resultsContainer = document.getElementById('results');
-    let dataItems = []; // Variável para armazenar os dados carregados
   
    let dataItems = []; // Variável para armazenar os dados combinados
 
@@ -202,7 +201,8 @@ Welcome
       } catch (error) {
         console.error('Erro ao carregar os dados:', error);
       }
-    
+    }
+  
   
     // Função de busca
     function search() {
@@ -309,5 +309,6 @@ Welcome
 
 </body>
 </html>
+
 
 
