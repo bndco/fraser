@@ -265,18 +265,43 @@ Welcome
   return highlightedText;
 }
   
+   let dataItems = []; // Variável para armazenar os dados combinados
+
+    // Carrega os dados de múltiplos arquivos JSON
+    async function loadData() {
+      try {
+        // Faz o fetch de ambos os arquivos simultaneamente
+        const [res1, res2] = await Promise.all([
+          fetch('bmus.json'),
+          fetch('busca013.json')
+        ]);
+
+        // Converte as respostas para JSON
+        const data1 = await res1.json();
+        const data2 = await res2.json();
+
+        // Combina os arrays usando o operador spread (...)
+        dataItems = [...data1, ...data2];
+        
+        console.log("Dados carregados com sucesso. Total de itens:", dataItems.length);
+      } catch (error) {
+        console.error('Erro ao carregar os dados:', error);
+      }
+    }
+
     // Carrega os dados e adiciona o evento de busca
     loadData().then(() => {
       searchButton.addEventListener('click', search);
+      // Opcional: permitir busca ao apertar "Enter"
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') search();
+      });
     });
   </script>
   
 
 
-<script>link.href = item.url; // Define o link com a URL do JSON
-    link.textContent = `Saiba mais sobre ${item.title}`; 
-    // Define o texto do link com o título
-    </script>
+
 
 
 <footer>
@@ -292,3 +317,4 @@ Welcome
 
 </body>
 </html>
+
